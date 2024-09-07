@@ -14,10 +14,17 @@ module PairTripleDetector
   wire x;
   wire y;
 
-  or(w, in0, in1);
-  and(x, in0, in1);
-  and(y, w, in2);
-  or(out, x, y);
+// Primitive gate implementation
+  // or(w, in0, in1);
+  // and(x, in0, in1);
+  // and(y, w, in2);
+  // or(out, x, y);
+
+// Boolean equation implementation
+  assign w   = in0 | in1;
+  assign x   = in0 & in1;
+  assign y   = w   & in2;
+  assign out = x   | y;
 
 endmodule
 
